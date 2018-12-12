@@ -20,7 +20,8 @@
         </activity>
         <activity
             android:name=".matchDetail.MatchDetailActivity"
-            android:label="Match Detail"></activity>
+            android:label="Match Detail"
+            android:parentActivityName=".main.MainActivity"/>
     </application>
 
 </manifest>
