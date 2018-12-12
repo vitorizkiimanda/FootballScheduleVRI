@@ -1,4 +1,4 @@
-package com.example.vitorizkiimanda.footballschedulevri
+package com.example.vitorizkiimanda.footballschedulevri.main
 
 
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.vitorizkiimanda.footballschedulevri.R
 
 
 // TODO: Rename parameter arguments, choose names that match

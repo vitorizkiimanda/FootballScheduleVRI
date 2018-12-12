@@ -1,7 +1,8 @@
-package com.example.vitorizkiimanda.footballschedulevri
+package com.example.vitorizkiimanda.footballschedulevri.main
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.vitorizkiimanda.footballschedulevri.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

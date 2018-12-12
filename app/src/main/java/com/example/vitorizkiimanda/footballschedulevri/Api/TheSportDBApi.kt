@@ -1,6 +1,7 @@
 package com.example.vitorizkiimanda.footballschedulevri.Api
 
 import android.net.Uri
+import android.util.Log
 import com.example.vitorizkiimanda.footballschedulevri.BuildConfig
 
 object TheSportDBApi {
@@ -41,6 +42,20 @@ object TheSportDBApi {
                 .appendPath(BuildConfig.TSDB_API_KEY)
                 .appendPath("eventsnextleague.php")
                 .appendQueryParameter("id", idLeague)
+                .build()
+                .toString()
+    }
+
+    fun getTeamHome(teamName: String?): String {
+
+        Log.d("detail", "name home team fromt API DB : " + teamName)
+        return Uri.parse(BuildConfig.BASE_URL).buildUpon()
+                .appendPath("api")
+                .appendPath("v1")
+                .appendPath("json")
+                .appendPath(BuildConfig.TSDB_API_KEY)
+                .appendPath("searchteams.php")
+                .appendQueryParameter("t", teamName)
                 .build()
                 .toString()
     }

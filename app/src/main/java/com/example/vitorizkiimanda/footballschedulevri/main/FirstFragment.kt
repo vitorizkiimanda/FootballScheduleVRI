@@ -1,4 +1,4 @@
-package com.example.vitorizkiimanda.footballschedulevri
+package com.example.vitorizkiimanda.footballschedulevri.main
 
 
 import android.os.Bundle
@@ -6,22 +6,19 @@ import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Spinner
+import com.dicoding.kotlinacademy.util.invisible
+import com.dicoding.kotlinacademy.util.visible
 import com.example.vitorizkiimanda.footballschedulevri.Adapter.MatchAdapter
 import com.example.vitorizkiimanda.footballschedulevri.Api.ApiRepository
 import com.example.vitorizkiimanda.footballschedulevri.Api.Data.Match
-import com.example.vitorizkiimanda.footballschedulevri.Api.Data.Team
+import com.example.vitorizkiimanda.footballschedulevri.matchDetail.MatchDetailActivity
+import com.example.vitorizkiimanda.footballschedulevri.R
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.fragment_first.*
-import kotlinx.android.synthetic.main.fragment_first.view.*
-import org.jetbrains.anko.matchParent
-import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.support.v4.find
 import org.jetbrains.anko.support.v4.startActivity
 
 
@@ -54,6 +51,7 @@ class FirstFragment : Fragment(), MainView {
 
         //binding
         listMatch = view.findViewById(R.id.rvMatches)
+        progressBar = view.findViewById(R.id.progress_bar)
 
         adapter = MatchAdapter(matches)
         listMatch.adapter = adapter
@@ -77,18 +75,14 @@ class FirstFragment : Fragment(), MainView {
             R.id.rvMatches -> startActivity<MatchDetailActivity>()
         }
     }
-//
-//    override fun showLoading() {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-//    }
-//
-//    override fun hideLoading() {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-//    }
 
-//    override fun showTeamList(data: List<Team>) {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-//    }
+    override fun showLoading() {
+        progressBar.visible()
+    }
+
+    override fun hideLoading() {
+        progressBar.invisible()
+    }
 
     override fun showMatchList(data: List<Match>) {
 //        swipeRefresh.isRefreshing = false

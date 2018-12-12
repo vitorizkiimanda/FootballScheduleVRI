@@ -1,8 +1,10 @@
-package com.example.vitorizkiimanda.footballschedulevri
+package com.example.vitorizkiimanda.footballschedulevri.main
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import com.example.vitorizkiimanda.footballschedulevri.main.FirstFragment
+import com.example.vitorizkiimanda.footballschedulevri.main.SecondFragment
 
 class MyPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 

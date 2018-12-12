@@ -1,8 +1,7 @@
-package com.example.vitorizkiimanda.footballschedulevri
+package com.example.vitorizkiimanda.footballschedulevri.main
 
 import com.example.vitorizkiimanda.footballschedulevri.Api.ApiRepository
 import com.example.vitorizkiimanda.footballschedulevri.Api.Data.MatchResponse
-import com.example.vitorizkiimanda.footballschedulevri.Api.Data.TeamResponse
 import com.example.vitorizkiimanda.footballschedulevri.Api.TheSportDBApi
 import com.google.gson.Gson
 import org.jetbrains.anko.doAsync
@@ -28,7 +27,7 @@ class MainPresenter(private val view: MainView,
 //    }
 
     fun getLastMatches(idLeage: String?) {
-//        view.showLoading()
+        view.showLoading()
         doAsync {
             val data = gson.fromJson(apiRepository
                     .doRequest(TheSportDBApi.getLastMatches("4328")),
@@ -36,14 +35,14 @@ class MainPresenter(private val view: MainView,
             )
 
             uiThread {
-//                view.hideLoading()
+                view.hideLoading()
                 view.showMatchList(data.matches)
             }
         }
     }
 
     fun getNextMatches(idLeage: String?) {
-//        view.showLoading()
+        view.showLoading()
         doAsync {
             val data = gson.fromJson(apiRepository
                     .doRequest(TheSportDBApi.getNextMatches("4328")),
@@ -51,7 +50,7 @@ class MainPresenter(private val view: MainView,
             )
 
             uiThread {
-//                view.hideLoading()
+                view.hideLoading()
                 view.showMatchList(data.matches)
             }
         }
