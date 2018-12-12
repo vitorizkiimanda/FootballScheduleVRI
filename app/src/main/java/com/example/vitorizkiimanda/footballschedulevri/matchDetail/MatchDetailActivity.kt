@@ -3,6 +3,7 @@ package com.example.vitorizkiimanda.footballschedulevri.matchDetail
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ProgressBar
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -16,6 +17,8 @@ import com.example.vitorizkiimanda.footballschedulevri.R
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_match_detail.*
+import org.jetbrains.anko.support.v4.startActivity
+import org.jetbrains.anko.toolbar
 
 class MatchDetailActivity : AppCompatActivity(), MatchDetailView {
     private var team: MutableList<Team> = mutableListOf()
@@ -64,7 +67,11 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView {
         //get picture home
         presenter.getTeamAway(data.strAwayTeam)
 
+        //Toolbar
+        supportActionBar?.title = "Match Detail"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
+
     override fun getBadgeHome(data: TeamResponse) {
 
         Glide.with(applicationContext)
