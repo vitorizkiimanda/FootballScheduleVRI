@@ -1,5 +1,7 @@
 package com.example.vitorizkiimanda.footballschedulevri.Api.Data
 
+import android.os.Parcel
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
@@ -12,6 +14,8 @@ data class Match(
         @SerializedName("idSoccerXML") var idSoccerXML: String?,
         @SerializedName("intAwayScore") var intAwayScore: String?,
         @SerializedName("intHomeScore") var intHomeScore: String?,
+        @SerializedName("intHomeShots") var intHomeShots: String?,
+        @SerializedName("intAwayShots") var intAwayShots: String?,
         @SerializedName("intRound") var intRound: String?,
         @SerializedName("strAwayFormation") var strAwayFormation: String?,
         @SerializedName("strAwayGoalDetails") var strAwayGoalDetails: String?,
@@ -41,4 +45,102 @@ data class Match(
         @SerializedName("strSeason") var strSeason: String?,
         @SerializedName("strSport") var strSport: String?,
         @SerializedName("strTime") var strTime: String?
-) : Serializable
+) : Serializable, Parcelable {
+    constructor(parcel: Parcel) : this(
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString()) {
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(dateEvent)
+        parcel.writeString(idAwayTeam)
+        parcel.writeString(idEvent)
+        parcel.writeString(idHomeTeam)
+        parcel.writeString(idLeague)
+        parcel.writeString(idSoccerXML)
+        parcel.writeString(intAwayScore)
+        parcel.writeString(intHomeScore)
+        parcel.writeString(intHomeShots)
+        parcel.writeString(intAwayShots)
+        parcel.writeString(intRound)
+        parcel.writeString(strAwayFormation)
+        parcel.writeString(strAwayGoalDetails)
+        parcel.writeString(strAwayLineupDefense)
+        parcel.writeString(strAwayLineupForward)
+        parcel.writeString(strAwayLineupGoalkeeper)
+        parcel.writeString(strAwayLineupMidfield)
+        parcel.writeString(strAwayLineupSubstitutes)
+        parcel.writeString(strAwayRedCards)
+        parcel.writeString(strAwayTeam)
+        parcel.writeString(strAwayYellowCards)
+        parcel.writeString(strDate)
+        parcel.writeString(strEvent)
+        parcel.writeString(strFilename)
+        parcel.writeString(strHomeFormation)
+        parcel.writeString(strHomeGoalDetails)
+        parcel.writeString(strHomeLineupDefense)
+        parcel.writeString(strHomeLineupForward)
+        parcel.writeString(strHomeLineupGoalkeeper)
+        parcel.writeString(strHomeLineupMidfield)
+        parcel.writeString(strHomeLineupSubstitutes)
+        parcel.writeString(strHomeRedCards)
+        parcel.writeString(strHomeTeam)
+        parcel.writeString(strHomeYellowCards)
+        parcel.writeString(strLeague)
+        parcel.writeString(strLocked)
+        parcel.writeString(strSeason)
+        parcel.writeString(strSport)
+        parcel.writeString(strTime)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<Match> {
+        override fun createFromParcel(parcel: Parcel): Match {
+            return Match(parcel)
+        }
+
+        override fun newArray(size: Int): Array<Match?> {
+            return arrayOfNulls(size)
+        }
+    }
+}

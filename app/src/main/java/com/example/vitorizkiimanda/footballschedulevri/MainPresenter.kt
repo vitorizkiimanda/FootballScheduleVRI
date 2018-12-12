@@ -12,23 +12,23 @@ class MainPresenter(private val view: MainView,
                     private val apiRepository: ApiRepository,
                     private val gson: Gson) {
 
-    fun getTeamList(league: String?) {
-        view.showLoading()
-        doAsync {
-            val data = gson.fromJson(apiRepository
-                    .doRequest(TheSportDBApi.getTeams(league)),
-                    TeamResponse::class.java
-            )
-
-            uiThread {
-                view.hideLoading()
-                view.showTeamList(data.teams)
-            }
-        }
-    }
+//    fun getTeamList(league: String?) {
+//        view.showLoading()
+//        doAsync {
+//            val data = gson.fromJson(apiRepository
+//                    .doRequest(TheSportDBApi.getTeams(league)),
+//                    TeamResponse::class.java
+//            )
+//
+//            uiThread {
+//                view.hideLoading()
+//                view.showTeamList(data.teams)
+//            }
+//        }
+//    }
 
     fun getLastMatches(idLeage: String?) {
-        view.showLoading()
+//        view.showLoading()
         doAsync {
             val data = gson.fromJson(apiRepository
                     .doRequest(TheSportDBApi.getLastMatches("4328")),
@@ -36,14 +36,14 @@ class MainPresenter(private val view: MainView,
             )
 
             uiThread {
-                view.hideLoading()
+//                view.hideLoading()
                 view.showMatchList(data.matches)
             }
         }
     }
 
     fun getNextMatches(idLeage: String?) {
-        view.showLoading()
+//        view.showLoading()
         doAsync {
             val data = gson.fromJson(apiRepository
                     .doRequest(TheSportDBApi.getNextMatches("4328")),
@@ -51,7 +51,7 @@ class MainPresenter(private val view: MainView,
             )
 
             uiThread {
-                view.hideLoading()
+//                view.hideLoading()
                 view.showMatchList(data.matches)
             }
         }
