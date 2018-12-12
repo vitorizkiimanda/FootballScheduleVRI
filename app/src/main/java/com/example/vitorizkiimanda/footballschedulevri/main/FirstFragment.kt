@@ -69,13 +69,6 @@ class FirstFragment : Fragment(), MainView {
     }
 
 
-    val clickListener = View.OnClickListener {view ->
-
-        when (view.getId()) {
-            R.id.rvMatches -> startActivity<MatchDetailActivity>()
-        }
-    }
-
     override fun showLoading() {
         progressBar.visible()
     }

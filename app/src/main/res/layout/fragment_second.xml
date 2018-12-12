@@ -3,13 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".main.SecondFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Second tab"
-        android:textSize="40sp"/>
+        android:paddingBottom="@dimen/spacing16dp"
+        android:paddingLeft="@dimen/spacing16dp"
+        android:paddingRight="@dimen/spacing16dp"
+        android:paddingTop="@dimen/spacing16dp"
+        android:orientation="vertical"
+        tools:context=".main.FirstFragment">
+
+        <ProgressBar
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.AppCompat.ProgressBar"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvMatches"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </android.support.constraint.ConstraintLayout>
 
 </FrameLayout>
