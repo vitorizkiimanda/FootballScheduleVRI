@@ -15,19 +15,32 @@ class MatchDetailPresenter(private val view: MatchDetailView,
 
     fun getTeamHome(teamName: String?) {
 
-        Log.d("detail", "name home team : " + teamName)
         view.showLoading()
         doAsync {
             val data = gson.fromJson(apiRepository
-                    .doRequest(TheSportDBApi.getTeamHome(teamName)),
+                    .doRequest(TheSportDBApi.getTeam(teamName)),
                     TeamResponse::class.java
             )
 
             uiThread {
                 view.hideLoading()
-
-                Log.d("detail", "data home team : " + data)
                 view.getBadgeHome(data)
+            }
+        }
+    }
+
+    fun getTeamAway(teamName: String?) {
+
+        view.showLoading()
+        doAsync {
+            val data = gson.fromJson(apiRepository
+                    .doRequest(TheSportDBApi.getTeam(teamName)),
+                    TeamResponse::class.java
+            )
+
+            uiThread {
+                view.hideLoading()
+                view.getBadgeAway(data)
             }
         }
     }

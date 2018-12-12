@@ -31,7 +31,6 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView {
         progressBar = findViewById(R.id.progress_bar)
 
         val data:Match = intent.getParcelableExtra<Match>("match")
-        Log.d("detail page", "data detail :"+ data)
 
         match_date.text = data.dateEvent
 
@@ -61,17 +60,24 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView {
         presenter = MatchDetailPresenter(this, request, gson)
         presenter.getTeamHome(data.strHomeTeam)
 
+
+        //get picture home
+        presenter.getTeamAway(data.strAwayTeam)
+
     }
     override fun getBadgeHome(data: TeamResponse) {
 
         Glide.with(applicationContext)
-                .load(data.team.strTeamBadge)
+                .load(data.team[0].strTeamBadge)
                 .apply(RequestOptions().placeholder(R.mipmap.ic_launcher))
                 .into(image_home)
     }
 
     override fun getBadgeAway(data: TeamResponse) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Glide.with(applicationContext)
+                .load(data.team[0].strTeamBadge)
+                .apply(RequestOptions().placeholder(R.mipmap.ic_launcher))
+                .into(image_away)
     }
 
     override fun showLoading() {

@@ -46,7 +46,7 @@ object TheSportDBApi {
                 .toString()
     }
 
-    fun getTeamHome(teamName: String?): String {
+    fun getTeam(teamName: String?): String {
 
         Log.d("detail", "name home team fromt API DB : " + teamName)
         return Uri.parse(BuildConfig.BASE_URL).buildUpon()
