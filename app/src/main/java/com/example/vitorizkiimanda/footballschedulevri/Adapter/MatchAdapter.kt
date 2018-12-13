@@ -17,7 +17,7 @@ class MatchAdapter (private val matches: List<Match>)
 
         viewHolder.itemView.setOnClickListener {
             val position = viewHolder.adapterPosition
-            p0.context?.startActivity<MatchDetailActivity>("match" to matches[position])
+            p0.context?.startActivity<MatchDetailActivity>("match" to matches[position], "origin" to "normal")
         }
         return viewHolder
     }

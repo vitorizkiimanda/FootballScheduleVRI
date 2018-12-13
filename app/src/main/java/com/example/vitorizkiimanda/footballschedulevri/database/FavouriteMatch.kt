@@ -1,6 +1,6 @@
 package com.example.vitorizkiimanda.footballschedulevri.database
 
-data class FavoriteMatch(
+data class FavouriteMatch(
         val id: Int?,
         val eventId: String?,
         val eventDate: String?,

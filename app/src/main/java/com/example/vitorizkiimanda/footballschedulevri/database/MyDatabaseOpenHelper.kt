@@ -19,35 +19,35 @@ class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "Favorit
 
     override fun onCreate(db: SQLiteDatabase) {
         // Here you create tables
-        db.createTable(FavoriteMatch.TABLE_FAVORITE_MATCH, true,
-                FavoriteMatch.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
-                FavoriteMatch.EVENT_ID to TEXT + UNIQUE,
-                FavoriteMatch.EVENT_DATE to TEXT,
-                FavoriteMatch.HOME_ID to TEXT,
-                FavoriteMatch.HOME_NAME to TEXT,
-                FavoriteMatch.HOME_SCORE to TEXT,
-                FavoriteMatch.HOME_GOALS to TEXT,
-                FavoriteMatch.HOME_SHOTS to TEXT,
-                FavoriteMatch.HOME_KEEPER to TEXT,
-                FavoriteMatch.HOME_DEFENSE to TEXT,
-                FavoriteMatch.HOME_MIDFIELD to TEXT,
-                FavoriteMatch.HOME_FORWARD to TEXT,
-                FavoriteMatch.HOME_SUBS to TEXT,
-                FavoriteMatch.AWAY_ID to TEXT,
-                FavoriteMatch.AWAY_NAME to TEXT,
-                FavoriteMatch.AWAY_SCORE to TEXT,
-                FavoriteMatch.AWAY_GOALS to TEXT,
-                FavoriteMatch.AWAY_SHOTS to TEXT,
-                FavoriteMatch.AWAY_KEEPER to TEXT,
-                FavoriteMatch.AWAY_DEFENSE to TEXT,
-                FavoriteMatch.AWAY_MIDFIELD to TEXT,
-                FavoriteMatch.AWAY_FORWARD to TEXT,
-                FavoriteMatch.AWAY_SUBS to TEXT)
+        db.createTable(FavouriteMatch.TABLE_FAVORITE_MATCH, true,
+                FavouriteMatch.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+                FavouriteMatch.EVENT_ID to TEXT + UNIQUE,
+                FavouriteMatch.EVENT_DATE to TEXT,
+                FavouriteMatch.HOME_ID to TEXT,
+                FavouriteMatch.HOME_NAME to TEXT,
+                FavouriteMatch.HOME_SCORE to TEXT,
+                FavouriteMatch.HOME_GOALS to TEXT,
+                FavouriteMatch.HOME_SHOTS to TEXT,
+                FavouriteMatch.HOME_KEEPER to TEXT,
+                FavouriteMatch.HOME_DEFENSE to TEXT,
+                FavouriteMatch.HOME_MIDFIELD to TEXT,
+                FavouriteMatch.HOME_FORWARD to TEXT,
+                FavouriteMatch.HOME_SUBS to TEXT,
+                FavouriteMatch.AWAY_ID to TEXT,
+                FavouriteMatch.AWAY_NAME to TEXT,
+                FavouriteMatch.AWAY_SCORE to TEXT,
+                FavouriteMatch.AWAY_GOALS to TEXT,
+                FavouriteMatch.AWAY_SHOTS to TEXT,
+                FavouriteMatch.AWAY_KEEPER to TEXT,
+                FavouriteMatch.AWAY_DEFENSE to TEXT,
+                FavouriteMatch.AWAY_MIDFIELD to TEXT,
+                FavouriteMatch.AWAY_FORWARD to TEXT,
+                FavouriteMatch.AWAY_SUBS to TEXT)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         // Here you can upgrade tables, as usual
-        db.dropTable(FavoriteMatch.TABLE_FAVORITE_MATCH, true)
+        db.dropTable(FavouriteMatch.TABLE_FAVORITE_MATCH, true)
     }
 }
 

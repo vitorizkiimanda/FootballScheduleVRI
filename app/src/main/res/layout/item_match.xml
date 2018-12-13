@@ -10,7 +10,6 @@
     android:layout_marginRight="8dp"
     android:clickable="true"
     android:focusable="true"
-    android:background="@drawable/ripple"
     android:layout_marginBottom="@dimen/spacing16dp">
     <TextView
         android:id="@+id/match_date"

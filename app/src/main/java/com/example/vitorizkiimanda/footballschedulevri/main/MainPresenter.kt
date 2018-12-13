@@ -11,6 +11,7 @@ class MainPresenter(private val view: MainView,
                     private val apiRepository: ApiRepository,
                     private val gson: Gson) {
 
+
 //    fun getTeamList(league: String?) {
 //        view.showLoading()
 //        doAsync {
