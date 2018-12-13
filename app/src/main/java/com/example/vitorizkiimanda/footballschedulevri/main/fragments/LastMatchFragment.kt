@@ -20,6 +20,7 @@ import com.example.vitorizkiimanda.footballschedulevri.R
 import com.example.vitorizkiimanda.footballschedulevri.main.MainPresenter
 import com.example.vitorizkiimanda.footballschedulevri.main.MainView
 import com.google.gson.Gson
+import org.jetbrains.anko.support.v4.onRefresh
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -37,6 +38,7 @@ class LastMatchFragment : Fragment(), MainView {
     private lateinit var adapter: MatchAdapter
     private lateinit var listMatch: RecyclerView
     private lateinit var progressBar: ProgressBar
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -48,6 +50,7 @@ class LastMatchFragment : Fragment(), MainView {
         //binding
         listMatch = view.findViewById(R.id.rvMatches)
         progressBar = view.findViewById(R.id.progress_bar)
+        swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_layout)
 
         adapter = MatchAdapter(matches)
         listMatch.adapter = adapter
@@ -55,13 +58,16 @@ class LastMatchFragment : Fragment(), MainView {
         //layout manager
         listMatch.layoutManager = LinearLayoutManager(context)
 
+        //pull to update
+        swipeRefreshLayout.onRefresh {
+            getData()
+        }
         getData()
 
         return view
     }
 
     fun getData(){
-
         val request = ApiRepository()
         val gson = Gson()
         presenter = MainPresenter(this, request, gson)
@@ -75,6 +81,7 @@ class LastMatchFragment : Fragment(), MainView {
 
     override fun hideLoading() {
         progressBar.invisible()
+        swipeRefreshLayout.isRefreshing = false
     }
 
     override fun showMatchList(data: List<Match>) {
