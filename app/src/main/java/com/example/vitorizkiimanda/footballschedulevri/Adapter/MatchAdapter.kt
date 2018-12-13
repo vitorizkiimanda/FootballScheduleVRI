@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.vitorizkiimanda.footballschedulevri.Api.Data.Match
+import com.example.vitorizkiimanda.footballschedulevri.Api.Model.Match
 import com.example.vitorizkiimanda.footballschedulevri.matchDetail.MatchDetailActivity
 import com.example.vitorizkiimanda.footballschedulevri.R
 import kotlinx.android.synthetic.main.item_match.view.*

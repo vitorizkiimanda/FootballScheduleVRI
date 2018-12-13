@@ -15,7 +15,7 @@ import com.dicoding.kotlinacademy.util.invisible
 import com.dicoding.kotlinacademy.util.visible
 import com.example.vitorizkiimanda.footballschedulevri.Adapter.MatchAdapter
 import com.example.vitorizkiimanda.footballschedulevri.Api.ApiRepository
-import com.example.vitorizkiimanda.footballschedulevri.Api.Data.Match
+import com.example.vitorizkiimanda.footballschedulevri.Api.Model.Match
 import com.example.vitorizkiimanda.footballschedulevri.R
 import com.example.vitorizkiimanda.footballschedulevri.main.MainPresenter
 import com.example.vitorizkiimanda.footballschedulevri.main.MainView

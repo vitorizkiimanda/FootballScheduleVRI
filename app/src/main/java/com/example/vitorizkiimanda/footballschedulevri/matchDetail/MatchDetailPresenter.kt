@@ -1,9 +1,7 @@
 package com.example.vitorizkiimanda.footballschedulevri.matchDetail
 
-import android.util.Log
 import com.example.vitorizkiimanda.footballschedulevri.Api.ApiRepository
-import com.example.vitorizkiimanda.footballschedulevri.Api.Data.Team
-import com.example.vitorizkiimanda.footballschedulevri.Api.Data.TeamResponse
+import com.example.vitorizkiimanda.footballschedulevri.Api.Model.TeamResponse
 import com.example.vitorizkiimanda.footballschedulevri.Api.TheSportDBApi
 import com.google.gson.Gson
 import org.jetbrains.anko.doAsync
@@ -23,7 +21,7 @@ class MatchDetailPresenter(private val view: MatchDetailView,
             )
 
             uiThread {
-                view.hideLoading()
+//                view.hideLoading()
                 view.getBadgeHome(data)
             }
         }
@@ -31,7 +29,7 @@ class MatchDetailPresenter(private val view: MatchDetailView,
 
     fun getTeamAway(teamName: String?) {
 
-        view.showLoading()
+//        view.showLoading()
         doAsync {
             val data = gson.fromJson(apiRepository
                     .doRequest(TheSportDBApi.getTeam(teamName)),

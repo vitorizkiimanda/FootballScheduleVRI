@@ -1,7 +1,7 @@
 package com.example.vitorizkiimanda.footballschedulevri.main
 
 import com.example.vitorizkiimanda.footballschedulevri.Api.ApiRepository
-import com.example.vitorizkiimanda.footballschedulevri.Api.Data.MatchResponse
+import com.example.vitorizkiimanda.footballschedulevri.Api.Model.MatchResponse
 import com.example.vitorizkiimanda.footballschedulevri.Api.TheSportDBApi
 import com.google.gson.Gson
 import org.jetbrains.anko.doAsync

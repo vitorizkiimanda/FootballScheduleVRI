@@ -1,7 +1,6 @@
 package com.example.vitorizkiimanda.footballschedulevri.main
 
-import com.example.vitorizkiimanda.footballschedulevri.Api.Data.Match
-import com.example.vitorizkiimanda.footballschedulevri.Api.Data.Team
+import com.example.vitorizkiimanda.footballschedulevri.Api.Model.Match
 
 interface MainView {
     fun showLoading()
