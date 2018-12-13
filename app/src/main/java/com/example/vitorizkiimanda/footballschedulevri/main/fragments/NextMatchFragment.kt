@@ -1,4 +1,4 @@
-package com.example.vitorizkiimanda.footballschedulevri.main
+package com.example.vitorizkiimanda.footballschedulevri.main.fragments
 
 
 import android.os.Bundle
@@ -15,6 +15,8 @@ import com.example.vitorizkiimanda.footballschedulevri.Adapter.MatchAdapter
 import com.example.vitorizkiimanda.footballschedulevri.Api.ApiRepository
 import com.example.vitorizkiimanda.footballschedulevri.Api.Data.Match
 import com.example.vitorizkiimanda.footballschedulevri.R
+import com.example.vitorizkiimanda.footballschedulevri.main.MainPresenter
+import com.example.vitorizkiimanda.footballschedulevri.main.MainView
 import com.google.gson.Gson
 
 
@@ -27,7 +29,7 @@ private const val ARG_PARAM2 = "param2"
  * A simple [Fragment] subclass.
  *
  */
-class SecondFragment : android.support.v4.app.Fragment(), MainView {
+class NextMatchFragment : android.support.v4.app.Fragment(), MainView {
 
     private var matches: MutableList<Match> = mutableListOf()
     private lateinit var presenter: MainPresenter
@@ -38,7 +40,7 @@ class SecondFragment : android.support.v4.app.Fragment(), MainView {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment// Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_second, container, false)
+        val view = inflater.inflate(R.layout.fragment_next_match, container, false)
 
 
         //binding

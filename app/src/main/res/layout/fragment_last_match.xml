@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".main.FirstFragment">
+    tools:context=".main.fragments.LastMatchFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -16,7 +16,7 @@
         android:paddingRight="@dimen/spacing16dp"
         android:paddingTop="@dimen/spacing16dp"
         android:orientation="vertical"
-        tools:context=".main.FirstFragment">
+        tools:context=".main.fragments.LastMatchFragment">
 
         <ProgressBar
             app:layout_constraintBottom_toBottomOf="parent"
