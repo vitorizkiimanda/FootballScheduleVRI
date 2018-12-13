@@ -1,5 +1,6 @@
 package com.example.vitorizkiimanda.footballschedulevri.matchDetail
 
+import android.database.sqlite.SQLiteConstraintException
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -19,8 +20,12 @@ import com.example.vitorizkiimanda.footballschedulevri.R.drawable.ic_add_to_favo
 import com.example.vitorizkiimanda.footballschedulevri.R.drawable.ic_added_to_favorites
 import com.example.vitorizkiimanda.footballschedulevri.R.id.add_to_favorite
 import com.example.vitorizkiimanda.footballschedulevri.R.menu.detail_menu
+import com.example.vitorizkiimanda.footballschedulevri.database.FavoriteMatch
+import com.example.vitorizkiimanda.footballschedulevri.database.database
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_match_detail.*
+import org.jetbrains.anko.db.TEXT
+import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.toast
 
 class MatchDetailActivity : AppCompatActivity(), MatchDetailView {
@@ -29,6 +34,7 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView {
     private lateinit var progressBar: ProgressBar
     private var menuItem: Menu? = null
     private var isFavorite: Boolean = false
+    private lateinit var matchData: Match
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +45,7 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView {
         progressBar = findViewById(R.id.progress_bar)
 
         val data:Match = intent.getParcelableExtra<Match>("match")
+        matchData = data
 
         match_date.text = data.dateEvent
 
@@ -126,21 +133,38 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView {
         }
     }
 
+
     private fun addToFavorite(){
-//        try {
-//            database.use {
-//                insert(Favorite.TABLE_FAVORITE,
-//                        Favorite.TEAM_ID to teams.teamId,
-//                        Favorite.TEAM_NAME to teams.teamName,
-//                        Favorite.TEAM_BADGE to teams.teamBadge)
-//            }
-//            swipeRefresh.snackbar("Added to favorite").show()
-//        } catch (e: SQLiteConstraintException){
-//            swipeRefresh.snackbar(e.localizedMessage).show()
-//        }
-
-
-        toast("Added to favourite")
+        try {
+            database.use {
+                insert(FavoriteMatch.TABLE_FAVORITE_MATCH,
+                        FavoriteMatch.EVENT_ID to matchData.idEvent,
+                        FavoriteMatch.EVENT_DATE to matchData.dateEvent,
+                        FavoriteMatch.MATCH_HOME_ID to matchData.idHomeTeam,
+                        FavoriteMatch.MATCH_HOME_NAME to matchData.strHomeTeam,
+                        FavoriteMatch.MATCH_HOME_SCORE to matchData.intHomeScore,
+                        FavoriteMatch.MATCH_HOME_GOALS to matchData.strHomeGoalDetails,
+                        FavoriteMatch.MATCH_HOME_SHOTS to matchData.intHomeShots,
+                        FavoriteMatch.MATCH_HOME_KEEPER to matchData.strHomeLineupGoalkeeper,
+                        FavoriteMatch.MATCH_HOME_DEFENSE to matchData.strHomeLineupDefense,
+                        FavoriteMatch.MATCH_HOME_MIDFIELD to matchData.strHomeLineupMidfield,
+                        FavoriteMatch.MATCH_HOME_FORWARD to matchData.strHomeLineupForward,
+                        FavoriteMatch.MATCH_HOME_SUBS to matchData.strHomeLineupSubstitutes,
+                        FavoriteMatch.MATCH_AWAY_ID to matchData.idAwayTeam,
+                        FavoriteMatch.MATCH_AWAY_NAME to matchData.strAwayTeam,
+                        FavoriteMatch.MATCH_AWAY_SCORE to matchData.intAwayScore,
+                        FavoriteMatch.MATCH_AWAY_GOALS to matchData.strAwayGoalDetails,
+                        FavoriteMatch.MATCH_AWAY_SHOTS to matchData.intAwayShots,
+                        FavoriteMatch.MATCH_AWAY_KEEPER to matchData.strAwayLineupGoalkeeper,
+                        FavoriteMatch.MATCH_AWAY_DEFENSE to matchData.strAwayLineupDefense,
+                        FavoriteMatch.MATCH_AWAY_MIDFIELD to matchData.strAwayLineupMidfield,
+                        FavoriteMatch.MATCH_AWAY_FORWARD to matchData.strAwayLineupForward,
+                        FavoriteMatch.MATCH_AWAY_SUBS to matchData.strAwayLineupSubstitutes)
+            }
+            toast("Added to favourite")
+        } catch (e: SQLiteConstraintException){
+            toast(e.localizedMessage)
+        }
     }
 
     private fun removeFromFavorite(){
