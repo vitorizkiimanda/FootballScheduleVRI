@@ -37,10 +37,6 @@ class LastMatchFragment : Fragment(), MainView {
     private lateinit var adapter: MatchAdapter
     private lateinit var listMatch: RecyclerView
     private lateinit var progressBar: ProgressBar
-    private lateinit var swipeRefresh: SwipeRefreshLayout
-    private lateinit var spinner: Spinner
-    private lateinit var leagueName: String
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
