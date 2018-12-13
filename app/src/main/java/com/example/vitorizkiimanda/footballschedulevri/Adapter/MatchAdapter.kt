@@ -17,7 +17,7 @@ class MatchAdapter (private val matches: List<Match>)
 
         viewHolder.itemView.setOnClickListener {
             val position = viewHolder.adapterPosition
-            p0?.context?.startActivity<MatchDetailActivity>("match" to matches[position])
+            p0.context?.startActivity<MatchDetailActivity>("match" to matches[position])
         }
         return viewHolder
     }
@@ -35,11 +35,11 @@ class MatchAdapter (private val matches: List<Match>)
 
 class MatchViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
-    private val nameHome = view?.name_home
-    private val nameAway = view?.name_away
-    private val scoreHome = view?.score_home
-    private val scoreAway = view?.score_away
-    private val match_date = view?.match_date
+    private val nameHome = view.name_home
+    private val nameAway = view.name_away
+    private val scoreHome = view.score_home
+    private val scoreAway = view.score_away
+    private val matchDate = view.match_date
 
     fun bindItem(matches: Match) {
 //        this.matches = matches
@@ -47,6 +47,6 @@ class MatchViewHolder(view: View) : RecyclerView.ViewHolder(view){
         nameAway?.text = matches.strAwayTeam
         scoreHome?.text = matches.intHomeScore
         scoreAway?.text = matches.intAwayScore
-        match_date?.text = matches.dateEvent
+        matchDate?.text = matches.dateEvent
     }
 }
