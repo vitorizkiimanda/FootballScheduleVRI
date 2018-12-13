@@ -1,11 +1,15 @@
 package com.example.vitorizkiimanda.footballschedulevri.main.fragments
 
 
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.os.Bundle
 import android.app.Fragment
+import android.content.Intent
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +27,7 @@ import com.example.vitorizkiimanda.footballschedulevri.main.MainView
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.support.v4.onRefresh
+import org.jetbrains.anko.support.v4.toast
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -90,6 +95,11 @@ class FavouriteFragment : android.support.v4.app.Fragment(), MainView {
             adapter.notifyDataSetChanged()
             hideLoading()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        showFavorite()
     }
 
 }

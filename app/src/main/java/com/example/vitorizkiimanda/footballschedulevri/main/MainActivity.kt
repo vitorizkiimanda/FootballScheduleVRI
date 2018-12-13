@@ -1,5 +1,6 @@
 package com.example.vitorizkiimanda.footballschedulevri.main
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.vitorizkiimanda.footballschedulevri.R
@@ -16,5 +17,9 @@ class MainActivity : AppCompatActivity() {
         viewpager_main.adapter = fragmentAdapter
 
         tabs_main.setupWithViewPager(viewpager_main)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }

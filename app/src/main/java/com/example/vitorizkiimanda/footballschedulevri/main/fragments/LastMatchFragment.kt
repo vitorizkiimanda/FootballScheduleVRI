@@ -55,13 +55,17 @@ class LastMatchFragment : Fragment(), MainView {
         //layout manager
         listMatch.layoutManager = LinearLayoutManager(context)
 
+        getData()
+
+        return view
+    }
+
+    fun getData(){
 
         val request = ApiRepository()
         val gson = Gson()
         presenter = MainPresenter(this, request, gson)
         presenter.getLastMatches("4328")
-
-        return view
     }
 
 

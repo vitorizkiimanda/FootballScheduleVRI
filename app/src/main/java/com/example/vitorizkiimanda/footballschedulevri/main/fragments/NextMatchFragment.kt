@@ -53,13 +53,17 @@ class NextMatchFragment : android.support.v4.app.Fragment(), MainView {
         //layout manager
         listMatch.layoutManager = LinearLayoutManager(context)
 
+        getData()
+
+        return view
+    }
+
+    fun getData(){
 
         val request = ApiRepository()
         val gson = Gson()
         presenter = MainPresenter(this, request, gson)
         presenter.getNextMatches("4328")
-
-        return view
     }
 
     override fun showLoading() {
