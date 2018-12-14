@@ -7,10 +7,10 @@ import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.ProgressBar
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.dicoding.kotlinacademy.util.formatDate
 import com.dicoding.kotlinacademy.util.invisible
 import com.dicoding.kotlinacademy.util.visible
 import com.example.vitorizkiimanda.footballschedulevri.Api.ApiRepository
@@ -104,7 +104,7 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView {
             val data:Match = intent.getParcelableExtra<Match>("match")
             matchData = data
 
-            match_date.text = data.dateEvent
+            match_date.text = formatDate(data.dateEvent)
 
             name_home.text = data.strHomeTeam
             score_home.text = data.intHomeScore

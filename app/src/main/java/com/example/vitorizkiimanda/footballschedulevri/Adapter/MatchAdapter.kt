@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.dicoding.kotlinacademy.util.formatDate
 import com.example.vitorizkiimanda.footballschedulevri.Api.Model.Match
 import com.example.vitorizkiimanda.footballschedulevri.matchDetail.MatchDetailActivity
 import com.example.vitorizkiimanda.footballschedulevri.R
@@ -47,6 +48,6 @@ class MatchViewHolder(view: View) : RecyclerView.ViewHolder(view){
         nameAway?.text = matches.strAwayTeam
         scoreHome?.text = matches.intHomeScore
         scoreAway?.text = matches.intAwayScore
-        matchDate?.text = matches.dateEvent
+        matchDate?.text = formatDate(matches.dateEvent)
     }
 }
