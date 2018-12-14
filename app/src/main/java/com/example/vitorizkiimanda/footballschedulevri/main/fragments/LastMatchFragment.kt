@@ -10,7 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import android.widget.Spinner
 import com.dicoding.kotlinacademy.util.invisible
 import com.dicoding.kotlinacademy.util.visible
 import com.example.vitorizkiimanda.footballschedulevri.Adapter.MatchAdapter
@@ -48,7 +47,7 @@ class LastMatchFragment : Fragment(), MainView {
 
 
         //binding
-        listMatch = view.findViewById(R.id.rvMatches)
+        listMatch = view.findViewById(R.id.rvMatchesLast)
         progressBar = view.findViewById(R.id.progress_bar)
         swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_layout)
 

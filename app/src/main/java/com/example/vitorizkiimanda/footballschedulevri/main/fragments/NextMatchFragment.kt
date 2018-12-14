@@ -47,7 +47,7 @@ class NextMatchFragment : android.support.v4.app.Fragment(), MainView {
 
 
         //binding
-        listMatch = view.findViewById(R.id.rvMatches)
+        listMatch = view.findViewById(R.id.rvMatchesNext)
         progressBar = view.findViewById(R.id.progress_bar)
         swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_layout)
 
