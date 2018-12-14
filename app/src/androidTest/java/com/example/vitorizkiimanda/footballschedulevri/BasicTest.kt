@@ -60,7 +60,7 @@ class BasicTest {
 
         //favourite detail
         onView(withId(rvMatchesFav)).perform(
-                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
 
         //unfav - fav again
         Thread.sleep(1500)
@@ -73,7 +73,7 @@ class BasicTest {
         pressBack()
         Thread.sleep(1500)
         onView(withId(rvMatchesFav)).perform(
-                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(1, click()))
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
         Thread.sleep(1500)
         onView(withId(add_to_favorite)).perform(click())
         Thread.sleep(1500)
