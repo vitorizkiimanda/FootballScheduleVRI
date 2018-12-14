@@ -16,6 +16,6 @@ fun View.invisible() {
 
 @SuppressLint("SimpleDateFormat")
 fun formatDate(date: String?): String{
-    val sdf = SimpleDateFormat("yyyy-MM-dd")
-    return SimpleDateFormat("EEE, dd MMM yyyy").format(sdf.parse(date) as Date)
+    val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+    return SimpleDateFormat("EEE, dd MMM yyyy").format(dateFormat.parse(date) as Date)
 }
