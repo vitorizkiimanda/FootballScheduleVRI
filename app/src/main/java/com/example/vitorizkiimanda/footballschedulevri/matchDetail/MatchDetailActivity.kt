@@ -25,10 +25,12 @@ import com.example.vitorizkiimanda.footballschedulevri.database.FavouriteMatch
 import com.example.vitorizkiimanda.footballschedulevri.database.database
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_match_detail.*
+import kotlinx.android.synthetic.main.fragment_last_match.*
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.db.delete
+import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.toast
 
 class MatchDetailActivity : AppCompatActivity(), MatchDetailView {
@@ -269,7 +271,7 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView {
                             FavouriteMatch.AWAY_SUBS to matchData.strAwayLineupSubstitutes)
                 }
             }
-            toast("Added to favourite")
+            match_date.snackbar(R.string.toast_fav_add).show()
         } catch (e: SQLiteConstraintException){
             toast(e.localizedMessage)
         }
@@ -291,7 +293,7 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView {
                             "id" to matchData.idEvent)
                 }
             }
-            toast("Removed from favourite")
+            match_date.snackbar(R.string.toast_fav_remove).show()
         } catch (e: SQLiteConstraintException){
             toast(e.localizedMessage)
         }

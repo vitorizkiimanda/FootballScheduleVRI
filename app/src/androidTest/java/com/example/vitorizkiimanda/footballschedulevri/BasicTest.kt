@@ -6,11 +6,13 @@ import android.support.test.espresso.action.ViewActions.click
 import android.support.test.espresso.action.ViewActions.swipeLeft
 import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.contrib.RecyclerViewActions
+import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import android.support.v7.widget.RecyclerView
+import android.widget.Toast
 import com.example.vitorizkiimanda.footballschedulevri.R.id.*
 import com.example.vitorizkiimanda.footballschedulevri.main.MainActivity
 import org.junit.Rule
@@ -64,9 +66,18 @@ class BasicTest {
 
         //unfav - fav again
         Thread.sleep(1500)
+
         onView(withId(add_to_favorite)).perform(click())
+
+        onView(withText(R.string.toast_fav_remove))
+                .check(matches(isDisplayed()))
+
         Thread.sleep(1500)
         onView(withId(add_to_favorite)).perform(click())
+
+        onView(withText(R.string.toast_fav_add))
+                .check(matches(isDisplayed()))
+
         Thread.sleep(1500)
 
         //erase from fav
